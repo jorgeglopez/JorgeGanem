@@ -152,3 +152,32 @@ return numberToCompare < max;
 }
 
 
+_____________________________________________________________________
+Monadicas:
+isHash();
+isCompanies();
+isEmpty();
+isCity();
+isValue();
+isLocation();
+isNull();
+isNumeric();
+
+
+
+Verbos Diadicas
+validate
+calculate
+write
+save
+update
+view
+show
+delete
+print
+List
+evaluation
+execute
+
+
+
