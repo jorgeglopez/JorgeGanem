@@ -117,3 +117,38 @@ const Car = {
 function paintCar(car) {
 car.color = "Red";
 }
+
+
+REFACTORIZACIÓN
+
+1. boolean hasCreditCard(User user) {
+    if (user.hasCard) {
+        return true;
+    } else {
+        return false;
+    }
+}
+*************************
+boolean hasCreditCard(User user) {
+return user.hasCard;
+}
+
+2. Circle makeCircle(double x, double y, double radius);
+*********************
+   Circle makeCircle double(x, y, radius);
+
+
+
+3. public boolean check() {
+    if (a < max) {
+        return true;
+    } else {
+        return false;
+    }
+}
+*************************
+public boolean check() {
+if (a < max) {
+return check();
+}
+
