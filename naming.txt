@@ -73,3 +73,47 @@ const MILLISECONDS_IN_A_DAY = 86_400_000;
 setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
 
 
+Asignación mental:
+
+const locations = ["Austin", "New York", "San Francisco"];
+locations.forEach(l => {
+  doStuff();
+  doSomeOtherStuff();
+  // ...
+  // ...
+  // ...
+  // Wait, what is `l` for again?
+  dispatch(l);
+});
+
+**********************
+const locations = ["Austin", "New York", "San Francisco"];
+locations.forEach(location => {
+  doStuff();
+  doSomeOtherStuff();
+  // ...
+  // ...
+  dispatch(location);
+});
+
+
+Contexto innecesario:
+
+const Car = {
+  carMake: "Honda",
+  carModel: "Accord",
+  carColor: "Blue"
+};
+function paintCar(car) {
+  car.carColor = "Red";
+}
+
+***********************
+const Car = {
+  Make: "Honda",
+  Model: "Accord",
+  Color: "Blue"
+};
+function paintCar(car) {
+car.color = "Red";
+}
