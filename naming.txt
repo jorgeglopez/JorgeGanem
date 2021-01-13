@@ -135,7 +135,7 @@ return user.hasCard;
 
 2. Circle makeCircle(double x, double y, double radius);
 *********************
-   Circle makeCircle double(x, y, radius);
+   double makeCircle (x, y, radius);
 
 
 
