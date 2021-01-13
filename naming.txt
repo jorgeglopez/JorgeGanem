@@ -2,7 +2,7 @@
 
 Guardar listado de usuarios --> SaveListUser
 
-Mostrar el total del pago --> TotalPayment
+Mostrar el total del pago --> showTotalPayment
 
 Resultado de la puntuación --> ResultScore
 
@@ -20,15 +20,15 @@ Número de asistentes --> NumberAssitants
 
 Dirección del estudiante --> AddressStudent
 
-Obtener datos basicos del animal --> getDataAnimal
+Obtener datos basicos del animal --> getAnimal
 
 Número de celda del preso --> NumberCellPrisoner
 
-Kilometros recorridos hasta Roma --> KmRouteToRoma
+Kilometros recorridos hasta Roma --> kilometersToTheCity
 
-Cantidad de tiempo programando --> ToalTimePrograming
+Cantidad de tiempo programando --> QuantityTimePrograming
 
-El pedido fue entregado --> DeliveryOrderFinish
+El pedido fue entregado --> DeliveryOrderSucces
 
 Obtener empresas --> getCompanies
 
@@ -48,5 +48,28 @@ Realizar prestamo de vivienda --> BuildLendingHome
 
 Realizar prestamo de automovil --> BuildLendingCar
 
-Realizar prestamo de libre inversión --> BuildLedingIvestment
+Realizar prestamo de libre inversión --> BuildLedingInvestment
+
+
+1.  
+MALO:  const yyyymmdstr = moment().format("YYYY/MM/DD");
+BUENO: const currentdate = moment().format("YYYY/MM/DD");
+
+2. 
+MALO:
+getUserInfo();
+getClientData();
+getCustomerRecord();
+
+BUENO:
+getUser();
+
+
+3. 
+MALO: setTimeout(blastOff, 86400000);
+
+BUENO:
+const MILLISECONDS_IN_A_DAY = 86_400_000;
+setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
+
 
