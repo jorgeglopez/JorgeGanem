@@ -154,14 +154,7 @@ return numberToCompare < max;
 
 _____________________________________________________________________
 Monadicas:
-isHash();
-isCompanies();
-isEmpty();
-isCity();
-isValue();
-isLocation();
-isNull();
-isNumeric();
+
 
 
 
