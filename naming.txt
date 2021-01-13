@@ -135,7 +135,7 @@ return user.hasCard;
 
 2. Circle makeCircle(double x, double y, double radius);
 *********************
-   double makeCircle (x, y, radius);
+   Circle makeCircle(Point center, double radius);
 
 
 
@@ -148,7 +148,7 @@ return user.hasCard;
 }
 *************************
 public boolean check() {
-if (a < max) {
-return check();
+return numberToCompare < max;  
 }
+
 
