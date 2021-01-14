@@ -1,0 +1,13 @@
+ 1. Refactorizar para que no devuelva null
+
+try {
+    List < Employee > employees = getEmployees();
+    if (employees != null) {
+        for (Employee e: employees) {
+            totalPay += e.getPay();
+        }
+    } else
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
+} catch (SQLException ex) {
+    throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
+}
