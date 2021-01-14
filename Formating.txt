@@ -8,9 +8,10 @@ Formating
 
    
    public class BoldWidget extends ParentWidget {
-	
-	public static final String REGEXP = “’’’.+?’’’”;
-	private static final Pattern pattern = Pattern.compile(“’’’(.+?)’’’”, Pattern.MULTILINE + Pattern.DOTALL);
+	 public static final String REGEXP = “’’’.+?’’’”;
+	 private static final Pattern pattern = Pattern.compile(“’’’(.+?)’’’”, 
+	  Pattern.MULTILINE + Pattern.DOTALL
+	 );
 	
 		public BoldWidget(ParentWidget parent, String text) throws Exception {
 		super(parent);
@@ -24,7 +25,7 @@ Formating
 		html.append(childHtml()).append(“</b>”);
 		return html.toString();
 		}
-   }
+    }
 
 
    2.    Densidad vertical
