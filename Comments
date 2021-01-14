@@ -17,6 +17,9 @@ ________________________________________________________
 // Returns an instance of the Responder bei
 protected abstract Responder responderInstance();
 
+**********************
+R/
+protected abstract Responder getResponderInstance();
 
 
 3. ¿Que técnica podríamos aplicar para eliminar el siguiente comentario?
