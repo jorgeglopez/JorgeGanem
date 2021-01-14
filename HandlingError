@@ -17,3 +17,5 @@ List<Employee> employees = getEmployees();
 for(Employee e : employees) {
 	totalPay += e.getPay(); 
 }
+//Seria inecesario el IF ya que se esta colocando en esta linea que retorne valores nulos si no encuentra, 
+//pero con la modificación se estaria devolviendo solo vacio se no encuentra Data.
