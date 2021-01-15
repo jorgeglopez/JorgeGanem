@@ -20,6 +20,7 @@ class UserLogin {
 
 }
 ************************************
+//Se violaba el principio de responsabilidad unica ya que se estaba enviando email en la clase de login
 package solid;
 
 class EmailSender {
@@ -50,9 +51,8 @@ return "wheelCount=" + getWheelCount() + ", maxSpeed=" + getMaxSpeed();
 
 }
 
-
 ******************************************
-
+//más de una responsabilidad para la clase ya que además de hacer los get esta tambien un metodo de impresión lo cual se viola la responsabilidad única
 public class VehiclePrinter {
 public void print(Vehicle vehicle){
 System.out.println(vehicle.toString());
@@ -68,6 +68,7 @@ class Coche {
     String getMarcaCoche(){ return marca; }
 }
 *******************************************************
+//Las operaciones de BD se estaban dejando en la misma clase y esto le da mucha responsabilidad a la clase coche
 class CocheDB{  
     void guardarCocheDB(Coche coche){ ... }
 }
