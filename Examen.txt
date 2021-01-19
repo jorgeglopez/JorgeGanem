@@ -1,0 +1,488 @@
+1.) Limpiar el siguiente código: 
+
+https://github.com/stoyanr/Wordcounter/blob/master/wordcounter/src/main/java/com/stoyanr/util/Arguments.java
+
+private int parseInt(final String value) {
+  int result = 0;
+  try {
+    result = Integer.parseInt(value);
+  } catch (NumberFormatException e) {
+    throw new ArgumentsException(String.format(
+      "Can't parse %s to a number: %s", value, e.getMessage()), e);
+  }
+  return result;
+}
+
+**************************************************************************************
+private int parseInt(final String value) {
+  try {
+    int result = Integer.parseInt(value);
+    return result;
+  } catch (NumberFormatException e) {
+    throw new ArgumentsException(String.format(
+      "Can't parse %s to a number: %s", value, e.getMessage()), e);
+  }
+}
+
+2.) Limpiar el siguiente código:
+
+private void loadParams() {
+  Properties props = new Properties();
+  InputStream is = null;
+  
+  // First try loading from the current directory
+  try {
+    File f = new File("server.properties");
+    is = new FileInputStream( f );
+  }
+  catch ( Exception e ) { is = null; }
+  
+  try {
+    if ( is == null ) {
+      // Try loading from classpath
+      is = getClass().getResourceAsStream("server.properties");
+    }
+  
+    // Try loading properties from the file (if found)
+    props.load( is );
+  }
+  catch ( Exception e ) { }
+
+  serverAddr = props.getProperty("ServerAddress", "192.168.0.1");
+  serverPort = new Integer(props.getProperty("ServerPort", "8080"));
+  threadCnt  = new Integer(props.getProperty("ThreadCount", "5"));
+}
+
+*******************************************************************************
+//Dado que se esta utilizando màs de una funciòn de un solo metodo se procede a realizar a separaciòn
+private void loadParams() throws ApplicationException {
+  Properties props = getProperties("server.properties");
+  serverAddr = props.getProperty("ServerAddress", "192.168.0.1");
+  serverPort = new Integer(props.getProperty("ServerPort", "8080"));
+  threadCnt = new Integer(props.getProperty("ThreadCount", "5"));
+}
+
+private InputStream getInputStream(String path)
+      throws FileNotFoundException {
+  try {
+    return getInputStreamFromFileSystem(path);
+  } catch (FileNotFoundException e) {
+    return getInputStreamFromClasspath(path);
+  }
+}
+
+private InputStream getInputStreamFromClasspath(String path)
+      throws FileNotFoundException {
+  InputStream is = getClass().getResourceAsStream(path);
+  if (is == null) {
+    throw new FileNotFoundException();
+  }
+  return is;
+}
+
+private InputStream getInputStreamFromFileSystem(String path) 
+    throws FileNotFoundException {
+  File f = new File(path);
+  InputStream is = new FileInputStream(f);
+  return is;
+}
+
+private Properties doGetProperties(String path)
+			throws FileNotFoundException, IOException {
+		Properties props = new Properties();
+		InputStream is = getInputStream(path);
+		props.load(is);
+		return props;
+	}
+
+private Properties getProperties(String path) 
+    throws ApplicationException {
+  try {
+    return doGetProperties(path);
+  } catch (FileNotFoundException e) {
+    throw new ApplicationException("message.file_not_found");
+  } catch (IOException e) {
+    throw new ApplicationException("message", e.getMessage());
+  }
+}
+
+
+3.) Cambie el nombre a la siguiente variable, la cuál representa la amortización base de un préstamo, que viene a ser el número de pagos en los que se va a liquidar el prestamo: 12 meses, 24 meses, etc.
+
+private int totalNumberOfPayments = 24
+
+
+4.) Que le sucedió a la siguiente variable y cual fue la causa de su problema:
+
+ List nameArray;
+ 
+ R/ No esta correctamente declarada ya que se debio transformar en una lista, no puede estar con el nombre de variable "Name", lo cual no aporta valor.
+
+
+5.) Limpie el siguiente código y comenta los cambios que hiciste en los commits.
+
+//Se estan visualizando màs de una responsabilidad sobre la funciòn lo cual esta violando el concepto de unica respnsabilidad
+ public void processProduct(Product product){
+ log.debug("Executing processProduct with parameter: " + product);
+
+long totalCost = 0L;
+
+if(IGAC.equals(product.getType()) || (SMA.equals(product.getType() && StringUtils.isBlank(product.getUser()))) ){
+  log.warn(This product is no longer available: + product);
+  product.setRejected(true);
+  throw new NoLongerAvailableProduct(product);
+} else {
+
+switch(product.getCode()){
+  case 1:
+     totalCost = product.getCost() * 0.85;
+    break;
+  case 2:
+totalCost = product.getCost() + product.getAdditionalCharge()
+break;
+default:
+totalCost = product.getCost();
+break;
+}
+
+if(product.getDiscount != null && product.getDiscount() > 0){
+totalCost -= product.getDiscount();
+}
+}
+
+product.setSellDate(Calendar.getInstance().getTime());
+product.setLastUpdateOperator(ONLINE_SHOPPING);
+ProductRepository productRepository = RepositoryFactory.getInstance(PRODUCT_TYPE);
+productRepository.buyProduct(product, totalCost);
+
+EmailSender sender = new EmailSender();
+String addressee = session.getParameter(USER);
+String subject = FORMAL_MESSAGE + product.getName().repleceAll(s, _);
+String body = FORMAL_BODY.replaceFirst({product}, product.getName()).replaceFirst({price}, totalCost);
+sender.send(subject, addressee);
+}
+
+******************************************************************************************
+//Se separa el metodo principal
+//Se estan visualizando màs de una responsabilidad sobre la funciòn lo cual esta violando el concepto de unica respnsabilidad
+public void processProduct(Product product){
+ log.debug("Executing processProduct with parameter: " + product);
+
+	if(isDiscontinuedProduct(product)) ){
+	processDiscontinuedProduct();
+	}
+
+ performSelling(product);
+ sendNotification(product);
+}
+
+//Luego de esto se podrian realizar las demas operaciones y seria mucho màs legible el codigo.
+
+
+
+6.) Refactorice el siguiente código enfocandose en el manejo de errores:
+
+class NestedIfElse1 {
+
+
+    private static final int E_OK = 1;
+    private static final int E_ERROR = 2;
+    private Registry registry;
+    private ConfigKeys configKeys;
+    private Logger logger;
+
+    public int delete(Page page) {
+        if (deletePage(page) == E_OK) {
+            if (registry.deleteReference(page.name) == E_OK) {
+                if (configKeys.deleteKey(page.name) == E_OK) {
+                    logger.info("page deleted");
+                } else {
+                    logger.info("configKey not deleted");
+                }
+            } else {
+                logger.info("deleteReference from registry failed");
+            }
+        } else {
+            logger.info("delete failed");
+            return E_ERROR;
+        }
+        return E_OK;
+    }
+
+    private int deletePage(Page page) {
+        return 0;
+    }
+}
+
+************************************************************************************
+class NestedIfElse {
+
+    private Logger logger;
+    private Registry registry;
+    private ConfigKeys configKeys;
+
+    public void delete(Page page) {
+        try {
+            deletePage(page);
+            registry.deleteReference(page.name);
+            configKeys.deleteKey(page.name);
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        }
+    }
+
+    private void deletePage(Page page) {
+
+    }
+}
+
+public class NestedIfElse {
+
+}
+
+
+7.) El siguiente código tiene un efecto secundario, identifiquelo y refactorice.
+
+
+
+class User {
+
+    private Session session;
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public boolean passwordMatched(String password) {
+        return false;
+    }
+}
+
+class Session {
+}
+
+class SessionService1 {
+
+    public Session login(User user, String password) {
+        if (user.getSession() != null) {
+            return user.getSession();
+        } else if (user.passwordMatched(password)) {
+            Session session = new Session();
+            user.setSession(session);
+            return session;
+        }
+        return null;
+    }
+}
+**************************************************************************************
+//con refactorizaciòn
+class SessionService {
+
+    public boolean isLogin(User user) {
+        return user.getSession() != null;
+    }
+
+    public void login(User user, String password) {
+        if (user.passwordMatched(password)) {
+            user.setSession(new Session());
+        }
+    }
+	
+//Se separo la sesion del loguin para un mejor manejo ya que tinia un efecto secuandario sin la refactorizaciòn
+
+
+8.) Elimine el duplicado del siguiente código usando lambdas en java:
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BinaryOperator;
+
+public class Duplication {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer product = Math2.sum(numbers);
+        System.out.println(product);
+    }
+}
+
+//with duplication
+class Math1 {
+    public static Integer sum(List<Integer> numbers) {
+        Integer sum = 0;
+        for (Integer n : numbers) {
+            sum += n;
+        }
+        return sum;
+    }
+
+    public static Integer multiply(List<Integer> numbers) {
+        Integer product = 1;
+        for (Integer n : numbers) {
+            product *= n;
+        }
+        return product;
+    }
+}
+
+**********************************************************************************************
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BinaryOperator;
+
+public class Duplication {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer product = Math.sum(numbers);
+        System.out.println(product);
+    }
+}
+
+class Math {
+
+    public static Integer rest(List<Integer> numbers, Integer unit, BinaryOperator<Integer> operation) {
+        Integer resul = unit;
+        for (Integer n : numbers) {
+            resul = operation.apply(resul, n);
+        }
+        return resul;
+    }
+
+    public static Integer sum(List<Integer> numbers) {
+        return rest(numbers, 0, (x, y) -> x + y);
+    }
+
+    public static Integer multiply(List<Integer> numbers) {
+        return rest(numbers, 1, (x, y) -> x * y);
+    }
+}
+
+
+9.) Nombres con sentido:
+
+Todos los nombres deben ser __Intencionados___ y __descriptivos____. Evita abreviaciones, , usar secuencias de números en variables y las palabras __redundantes__ (the-, a-, _-object___, -info, -data). Usa nombres que se puedan ___ (evita variables a, e, l… usar i, j, k solo para ____ cuyo contexto sea muy acotado).
+
+Es mejor usar un código en la implementación (que será privada y usada menos veces) que la interfaz => IShapeFactory, ShapeFactory —> ShapeFactory, ShapeFactoryImp
+
+Nombres de clases: Evitar sufijos __Processor__ o ___manager__. No deben ser __verbos___.
+
+Nombres de métodos: Utiliza __verbos__. Usa get y set para métodos de acceso e _is_ para booleanos. Usa métodos estáticos con nombres con el tipo de argumento en lugar de _sobrecargar__ constructores (new Complex(23.0) –> Complex.FromRealNumber(23.0))
+
+No usar _juegos de palabras_____, chistes o sutilezas. Intentar usar siempre las _mismas___ palabras para lo mismo (get, fetch, retrieve?). No usar una misma palabra para cosas distintas (___add es sum o insert?_____).
+
+Usa nombres __tecnicos____ cuando la intención sea técnica (Factory, Visitor, __facade_, …) y nombres de dominio para conceptos de dominio.
+
+Añade __contexto__ a las variables, por ejemplo, agrupándolas en clases.
+
+Los nombres cuanto más __cortos___ mejor, siempre que sean explícitos y claros.
+
+
+
+Completa el texto anterior usando las siguientes palabras:
+
+
+
+
+descriptivos
+
+-object
+
+intencionados
+
+prefijos
+
+Manager
+
+is
+
+verbos
+
+bucles
+
+verbos
+
+Facade
+
+redundantes
+
+Processor
+
+buscar
+
+add es sum o insert?
+
+juegos de palabras
+
+contexto
+
+cortos
+
+sobrecargar
+
+mismas
+
+técnicos
+
+
+
+10.)
+
+Formato:
+
+
+El tamaño de los ficheros no debería superar las 200 líneas de media, con un límite máximo en 500.
+
+Metáfora del periódico:
+
+Una clase comienza con un título descriptivo y una descripción sin _detalles__ que explica el contenido.
+Después vienen los detalles.
+El módulo o programa es una compilación de artículos grandes y pequeños.
+Podemos entender la clase con los métodos superiores sin necesidad de ahondar en los detalles.
+Separación de pensamientos y bloques con lineas (como separar en párrafos).
+La distancia vertical entre elementos relacionados debe ser mínima, y como consecuencia, evitar separar elementos relacionados en 2 ficheros distintos (razón por la cual no se deben usar variables protected)
+
+Las variables se deben declarar lo más cerca posible a su uso. Las variables de _clase__ (de instancia) en la parte superior, ya que se usan en toda la clase.
+
+La anchura de las líneas de código, entre _80__ y __120_ caracteres, no deberíamos hacer _scroll____ para leer código.
+
+Los espacios en blanco se usan para separar _conceptos__ que queremos remarcar o que están desconexos con sus antecesores y predecesores. Ej: double determinant(double a, double b, double c) { return b*b – 4*a*c; }
+
+Intentar no romper el _sangrado___ aunque la longitud de la función o while sea mínima, lo importante es la claridad.
+
+Cualquier __equipo___ debería tener unas _reglas___ convenientemente consensuadas. Es importante seguirlas por parte de todos, el estilo y formato debe ser siempre el mismo ya que el código es compartido.
+
+
+
+
+
+Completa el texto anterior usando las siguientes palabras:
+
+
+
+200
+
+120
+
+detalles
+
+500
+
+líneas en blanco
+
+80
+
+conceptos
+
+clase
+
+scroll horizontal
+
+sangrado
+
+equipo
+
+reglas
