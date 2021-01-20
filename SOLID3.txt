@@ -1,4 +1,4 @@
- Implementación de una aplicación que prepara automáticamente una taza de café cada mañana para que no tenga que levantarse de la
+  Implementación de una aplicación que prepara automáticamente una taza de café cada mañana para que no tenga que levantarse de la
  cama antes de que esté lista, puede decidir modelar estas máquinas de café como dos clases con los métodos addCoffee y brewCoffee .
 
 
@@ -178,8 +178,13 @@ public class BasicCoffeeApp {
     } 
 }
 
-------------------------------------------------------------
+public interface CoffeeMachine {
 
+    Coffee brewCoffee(CoffeeSelection selection) throws CoffeeException;
+}
+
+---------------------------------------------------------------------------------------------------
+	
 public class PremiumCoffeeMachine implements CoffeeMachine {
 
     private Map<CoffeeSelection, Configuration> configMap;
