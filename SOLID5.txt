@@ -1,0 +1,68 @@
+- Crear interfaces que definan el comportamiento que deberian hacer las clases para poder funcionar como 
+mecanismo de persistencia o como método de pago.
+
+ - Hacer que estos objetos se pasen por constructor.
+	
+
+
+public class ShoppingBasket {
+
+public void buy(Shopping shopping) {
+
+    SqlDatabase db = new SqlDatabase();
+    db.save(shopping);
+
+    CreditCard creditCard = new CreditCard();
+        creditCard.pay(shopping);
+    }
+}
+
+public class SqlDatabase {
+    public void save(Shopping shopping){
+    // Saves data in SQL database
+    }
+}
+
+public class CreditCard {
+    public void pay(Shopping shopping){
+    	// Performs payment using a credit card
+    }
+}
+*************************************************************************************
+public interface Persistence {
+	void save(Shopping shopping);
+}
+
+public class SqlDatabase implements Persistence {
+	public void save(Shopping shopping){
+	// Saves data in SQL database
+	}
+}
+
+public interface PaymentMethod {
+	void pay(Shopping shopping);
+}
+
+public class CreditCard implements PaymentMethod {
+	public void pay(Shopping shopping){
+	// Performs payment using a credit card
+	}
+}
+
+public class ShoppingBasket {
+
+private final Persistence persistence;
+private final PaymentMethod paymentMethod;
+
+	public ShoppingBasket(Persistence persistence, PaymentMethod paymentMethod) {
+	this.persistence = persistence;
+	this.paymentMethod = paymentMethod;
+	}
+
+	public void buy(Shopping shopping) {
+	persistence.save(shopping);
+	paymentMethod.pay(shopping);
+	}
+}
+
+
