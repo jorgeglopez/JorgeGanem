@@ -29,8 +29,11 @@ SALIDA
 * Se envia email a taller para que se proceda a reparar el dispositivo
 
 ------------------------------------------------------------------------
-
+TEST4
 - Si el dispositivo es reparado se le envia notificación al cliente y se envia factura
-
+ENTRADA
+* Actualización del estado del dispositivo
 SALIDA
-* Se debe generar factura del servicio y por ultimo se le da salida al dispositivo una vez pagado la reparación
+* Generación de factura 
+
+------------------------------------------------------------------------
