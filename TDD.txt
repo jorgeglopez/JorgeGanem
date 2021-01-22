@@ -2,31 +2,29 @@ Requerimiento servicio de mantenimiento de celulares
 
 Especificaciones:
 
+TEST1
 - Se requiere que se pueda realizar la entrada del dispositivo averiado del cliente al taller para su posterior
 reparación.
-
-
-TEST1
 ENTRADA
-* Registro en inventario del dispositivo por medio del IMEI
+* Crear Registro del dispositivo por medio del IMEI
 SALIDA
-* Dispositivo sumado en inventario en bodega de reparaciones
+* Actualizar inventario de la bodega de reparaciones
 ------------------------------------------------------------------------
 
 TEST2
 - El tecnico debe dar un diagnostico de la reparación del dispositivo
 ENTRADA
-* Se registra el diagnostico del dispositivo con el valor a facturar
+* Crear diagnostico del dispositivo con el valor a facturar
 SALIDA
-* El cliente se le envia un email con el costo de la reparación.
+* Se actualiza estado del dispositivo y se envia un email con el costo de la reparación.
 
 ------------------------------------------------------------------------
 TEST3
 - Proceso de orden de servicio
 ENTRADA
-* Cliente acepta la reparación
+* Se actualiza estado del dispositivo cuando el cliente acepte la reparación
 SALIDA
-* Se envia email a taller para que se proceda a reparar el dispositivo
+* Se crea registro de reparación eviando email a taller para que se proceda a reparar el dispositivo
 
 ------------------------------------------------------------------------
 TEST4
@@ -34,7 +32,7 @@ TEST4
 ENTRADA
 * Actualización del estado del dispositivo
 SALIDA
-* Generación de factura 
+* Se crea la factura 
 
 ------------------------------------------------------------------------
 TEST5
@@ -42,4 +40,4 @@ TEST5
 ENTRADA
 * Cliente realiza pago por PSE o otro medio de pago
 SALIDA
-* Se resta de inventario el dispositivo
+* Se Crea registro de pago y Se elimina del inventario el dispoistivo
