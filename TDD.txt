@@ -37,3 +37,9 @@ SALIDA
 * Generación de factura 
 
 ------------------------------------------------------------------------
+TEST5
+- Pago de servicio tecnico (Factura)
+ENTRADA
+* Cliente realiza pago por PSE o otro medio de pago
+SALIDA
+* Se resta de inventario el dispoistivo
