@@ -42,4 +42,4 @@ TEST5
 ENTRADA
 * Cliente realiza pago por PSE o otro medio de pago
 SALIDA
-* Se resta de inventario el dispoistivo
+* Se resta de inventario el dispositivo
