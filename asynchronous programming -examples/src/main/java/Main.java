@@ -1,3 +1,9 @@
+import com.google.common.util.concurrent.AsyncCallable;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListeningExecutorService;
+import com.google.common.util.concurrent.MoreExecutors;
+import com.jcabi.aspects.Async;
+
 import java.util.concurrent.*;
 
 
@@ -27,7 +33,7 @@ public class Main {
         System.out.println("The result is: "+result);
         threadpool.shutdown();
     }*/
-    public static void main(String... args) throws ExecutionException, InterruptedException {
+    /*public static void main(String... args) throws ExecutionException, InterruptedException {
         /*int number = 10;
         MathematicsOperations mathematicsOperations = new MathematicsOperations();
         CompletableFuture<Long> completableFuture = CompletableFuture.supplyAsync(()->mathematicsOperations.factorial(number));
@@ -35,7 +41,7 @@ public class Main {
             System.out.println("Completable Future is not Finished");
         }
         Long result = completableFuture.get();
-        System.out.println("The result is: "+result);*/
+        System.out.println("The result is: "+result);
         int number1=1;
         int number2=3;
         MathematicsOperations mathematicsOperations = new MathematicsOperations();
@@ -45,5 +51,55 @@ public class Main {
         }
        int result = completableFuture.get();
         System.out.println("The result is: "+result);
+
+    }*/
+/*
+    public static void main(String... args) throws ExecutionException, InterruptedException {
+        int number=10;
+        MathematicsOperations mathematicsOperations = new MathematicsOperations();
+        ExecutorService threadpool = Executors.newCachedThreadPool();
+        ListeningExecutorService service = MoreExecutors.listeningDecorator(threadpool);
+
+        ListenableFuture<Long> guavaFuture = service.submit(()->mathematicsOperations.factorial(number));
+
+        long result = guavaFuture.get();
+
+        System.out.println("Result is "+ result);
+
+        threadpool.shutdown();
+
+    }*/
+
+/*
+ static {
+        Async.init();
     }
+
+    public static void main(String... args) throws ExecutionException, InterruptedException {
+        int number=10;
+        MathematicsOperations mathematicsOperations = new MathematicsOperations();
+        CompletableFuture<Long> completableFuture = CompletableFuture.supplyAsync(()->mathematicsOperations.factorial(number));
+
+        long result = Async.await(completableFuture);
+
+        System.out.println("Result is "+ result);
+    }*/
+    /*@Async
+    public static void main(String... args) throws ExecutionException, InterruptedException {
+        int number=10;
+        MathematicsOperations mathematicsOperations = new MathematicsOperations();
+        Future<Long> factorialFuture = CompletableFuture.completedFuture(mathematicsOperations.factorial(number));
+        System.out.println("The result is "+factorialFuture);
+
+    }*/
+    @Async
+    public static void main(String... args) throws ExecutionException, InterruptedException {
+        String diagnostic="Fail";
+        TechnicalOperations technicalOperations = new TechnicalOperations();
+        Future<String> factorialFuture = CompletableFuture.completedFuture(technicalOperations.ServiceTechnical(diagnostic));
+        System.out.println("The result is "+factorialFuture.get());
+
+
+    }
+
 }

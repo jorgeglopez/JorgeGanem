@@ -1,4 +1,6 @@
 MathematicsOperations.java
  MathematicsOperations
+TechnicalOperations.java
+ TechnicalOperations
 Main.java
  Main
