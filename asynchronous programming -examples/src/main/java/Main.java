@@ -92,14 +92,38 @@ public class Main {
         System.out.println("The result is "+factorialFuture);
 
     }*/
-    @Async
+/*    Ejercicio Aspectos
+@Async
     public static void main(String... args) throws ExecutionException, InterruptedException {
         String diagnostic="Fail";
         TechnicalOperations technicalOperations = new TechnicalOperations();
         Future<String> factorialFuture = CompletableFuture.completedFuture(technicalOperations.ServiceTechnical(diagnostic));
         System.out.println("The result is "+factorialFuture.get());
+    }*/
+
+    public static void main(String... args) throws ExecutionException, InterruptedException {
+/*        Thread[] myThread = new Thread[20];
+        for(int i=0;i<myThread.length;i++){
+            myThread[i] = new MyThread("Thread " + i);
+        }
+
+        for(int i=0;i<myThread.length;i++){
+            myThread[i].start();
+            System.out.println(myThread[i].getName());
+        }
+        MyThread myThread = new MyThread("Thread 1");
+        new Thread(myThread).start();
+        System.out.println("Thread is" +myThread);*/
+
+        Customer customer = new Customer("Jorge", new int[]{2,2,1,5,2,3});
+        Customer customer2 = new Customer("Juan", new int[]{4,1,4,1,1});
+
+        StoreCashier storeCashier = new StoreCashier("Sergio");
+        StoreCashier storeCashier1 = new StoreCashier("Sergio");
+        long initialTime = System.currentTimeMillis();
+        storeCashier.buy(customer,initialTime);
+        storeCashier1.buy(customer2,initialTime);
 
 
     }
-
 }
