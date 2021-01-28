@@ -8,9 +8,15 @@ public class MainThread {
 
         StoreCashierThread storeCashier = new StoreCashierThread("Sergio", customer, 1 );
         StoreCashierThread storeCashier1 = new StoreCashierThread("Sergio", customer, 1);
+
+        Runnable processOne= ()-> storeCashier.buy(customer,1);
+        Runnable processTwo= ()-> storeCashier.buy(customer,1);
+
         long initialTime = System.currentTimeMillis();
-        storeCashier.start();
-        storeCashier1.start();
+//        storeCashier.start();
+//        storeCashier1.start();
+        new Thread(processOne).start();
+        new Thread(processTwo).start();
 
 
     }

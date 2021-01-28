@@ -10,11 +10,17 @@ Main.java
  Main
 StoreCashier.java
  StoreCashier
-MainThread.java
- MainThread
+MainServicesTechnical.java
+ MainServicesTechnical
 StoreCashierThread.java
  StoreCashierThread
 AttentionCustomer.java
  AttentionCustomer
-MainServicesTechnical.java
- MainServicesTechnical
+OperationInterface.java
+ OperationInterface
+FunctionalInterfacesExample.java
+ FunctionalInterfacesExample
+MainRunnable.java
+ MainRunnable
+MainThread.java
+ MainThread
