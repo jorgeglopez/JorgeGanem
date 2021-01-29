@@ -1,7 +1,4 @@
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.stream.IntStream;
 
 public class MainServicesTechnical  {
@@ -31,15 +28,32 @@ public class MainServicesTechnical  {
 
 
 
-        System.out.println("The thread started");
+/*        System.out.println("The thread started");
         ExecutorService executor1 = Executors.newCachedThreadPool();
         executor1.execute(()-> attentionCustomer.attention(customer,1));
         executor1.shutdown();
         ExecutorService executor2 = Executors.newCachedThreadPool();
         executor2.execute(()-> attentionCustomer1.attention(customer2,1));
         executor2.shutdown();
-        System.out.println("The Thread finished");
+        System.out.println("The Thread finished");*/
 
+        //Whit ScheduleWithFixedDelay
+        ScheduledExecutorService executors = Executors.newScheduledThreadPool(1);
+        IntStream.range(3,10).forEach(
+                i ->executors.scheduleWithFixedDelay(()->attentionCustomer.attention(customer,1),10,10, TimeUnit.SECONDS)
+        );
+        ScheduledExecutorService executors2 = Executors.newScheduledThreadPool(1);
+        IntStream.range(3,10).forEach(
+                i ->executors2.scheduleWithFixedDelay(()->attentionCustomer1.attention(customer,1),10,10, TimeUnit.SECONDS)
+        );
 
+        System.out.println("The thread finished");
+        //executors.shutdown();
     }
+
+
+
+
+
+
 }
