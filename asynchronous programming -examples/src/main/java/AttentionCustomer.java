@@ -1,3 +1,5 @@
+import java.util.concurrent.ThreadFactory;
+
 public class AttentionCustomer extends Thread{
 
 
@@ -16,7 +18,7 @@ public class AttentionCustomer extends Thread{
         this.attention(customer,initialTime);
     }
 
-    public void attention(Customer customer, long timeStamp) {
+    public ThreadFactory attention(Customer customer, long timeStamp) {
         System.out.println("The attention of " + this.attentionCustomer + "the process the service technical "
                 + customer.getName() + "completed in " + (System.currentTimeMillis() - timeStamp) / 1000 + " Seconds ");
 
@@ -27,6 +29,7 @@ public class AttentionCustomer extends Thread{
         }
         System.out.println("The cashier " + this.attentionCustomer + " has finished to process " + customer.getName() + " Time " +
                 (System.currentTimeMillis() - timeStamp) / 1000 + " Seconds ");
+        return null;
     }
 
     private void waitBySeconds(int seconds) {

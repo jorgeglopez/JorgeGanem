@@ -1,5 +1,8 @@
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.IntStream;
 
 public class MainServicesTechnical  {
 
@@ -21,11 +24,21 @@ public class MainServicesTechnical  {
         //new Thread(processTwo).start();
 
 
-        Executor executor1 = (command)-> attentionCustomer.attention(customer,1);
+/*        Executor executor1 = (command)-> attentionCustomer.attention(customer,1);
         Executor executor2 = (command)-> attentionCustomer1.attention(customer,1);
         executor1.execute(new ExecutorRunnable());
-        executor2.execute(new ExecutorRunnable());
+        executor2.execute(new ExecutorRunnable());*/
 
+
+
+        System.out.println("The thread started");
+        ExecutorService executor1 = Executors.newCachedThreadPool();
+        executor1.execute(()-> attentionCustomer.attention(customer,1));
+        executor1.shutdown();
+        ExecutorService executor2 = Executors.newCachedThreadPool();
+        executor2.execute(()-> attentionCustomer1.attention(customer2,1));
+        executor2.shutdown();
+        System.out.println("The Thread finished");
 
 
     }

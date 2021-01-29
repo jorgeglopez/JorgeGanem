@@ -14,8 +14,8 @@ ExecutorRunnable.java
  ExecutorRunnable
 StoreCashierThread.java
  StoreCashierThread
-AttentionCustomer.java
- AttentionCustomer
+ExecutorServiceExample.java
+ ExecutorServiceExample
 OperationInterface.java
  OperationInterface
 FunctionalInterfacesExample.java
@@ -28,5 +28,7 @@ Invoker.java
  Invoker
 ExecutorExample.java
  ExecutorExample
+AttentionCustomer.java
+ AttentionCustomer
 MainServicesTechnical.java
  MainServicesTechnical
