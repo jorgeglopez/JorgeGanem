@@ -40,12 +40,12 @@ public class MainServiceTechnical {
 
     private static void thenAcceptCompletableFuture() throws ExecutionException, InterruptedException {
         TechnicalOperations technicalOperations = new TechnicalOperations();
-        CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(()->technicalOperations.ServiceTechnical("Fail"));
-        CompletableFuture<String> completableFutureGreat =
-                CompletableFuture.supplyAsync(()->"Repair Date: "+technicalOperations.assignDateOfTechnical());
+        //CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(()->technicalOperations.ServiceTechnical("Fail"));
+        CompletableFuture<String> completableFuture =
+                CompletableFuture.supplyAsync(()->technicalOperations.assignDateOfTechnical());
 
-        CompletableFuture<Void> future = completableFuture.thenAccept((date)->System.out.println("The number is"+date));
-        CompletableFuture<String> futureGreat = completableFutureGreat.thenApply((message)->message +" Technical is Jorge");
+        CompletableFuture<Void> future = completableFuture.thenAccept((date)->System.out.println("Date next of delivery is"));
+        CompletableFuture<String> futureGreat = completableFuture.thenApply((message)->message +" Technical is Jorge");
         //System.out.println(future.get());
         System.out.println(futureGreat.get());
     }
