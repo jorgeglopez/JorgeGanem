@@ -13,8 +13,7 @@ public class MainServiceQueue {
         Customer customerTwo = new Customer("Vanessa");
         Cells cellTree = new Cells("Xiaomi");
         Cells cellFour = new Cells("Asus");
-        customerOne.addCell(cellOne);
-        customerOne.addCell(cellTwo);
+
         customerTwo.addCell(cellTree);
         customerTwo.addCell(cellFour);
 
