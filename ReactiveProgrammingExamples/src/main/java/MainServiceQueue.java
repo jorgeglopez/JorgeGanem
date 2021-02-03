@@ -22,8 +22,6 @@ public class MainServiceQueue {
         customers.add(customerOne);
         customers.add(customerTwo);
 
-        String cell="";
-
         customers.stream().map((customer) -> customer.getCellList())
                 .flatMap(cells -> cells.stream())
                 .forEach(customer -> System.out.println(customer.getCell()));
