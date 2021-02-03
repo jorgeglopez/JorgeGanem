@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainServiceQueue {
-
+//Cola de servicios tecnicos clientes por celular
     public static void main (String[] args){
         Customer customerOne = new Customer("Jorge");
         Cells cellOne = new Cells("iPhone");
@@ -13,7 +13,6 @@ public class MainServiceQueue {
         Customer customerTwo = new Customer("Vanessa");
         Cells cellTree = new Cells("Xiaomi");
         Cells cellFour = new Cells("Asus");
-
         customerTwo.addCell(cellTree);
         customerTwo.addCell(cellFour);
 
@@ -21,6 +20,7 @@ public class MainServiceQueue {
         List<Customer> customers = new ArrayList<Customer>();
         customers.add(customerOne);
         customers.add(customerTwo);
+        
 
         customers.stream().map((customer) -> customer.getCellList())
                 .flatMap(cells -> cells.stream())
