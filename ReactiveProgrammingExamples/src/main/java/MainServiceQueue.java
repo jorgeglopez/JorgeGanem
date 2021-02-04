@@ -20,7 +20,15 @@ public class MainServiceQueue {
         List<Customer> customers = new ArrayList<Customer>();
         customers.add(customerOne);
         customers.add(customerTwo);
-        
+
+        /*        for (Person person:people){
+         *//*for (int travels=0; person.getTravelsList().size()>travel;travel++){
+                countries +=person.getTravelsList().get(travel).getCountry()+", ";
+            }*//*
+            for (Travels travel : person.getTravelList()){
+                System.out.println(travel.getCountry());
+            }
+        }*/
 
         customers.stream().map((customer) -> customer.getCellList())
                 .flatMap(cells -> cells.stream())

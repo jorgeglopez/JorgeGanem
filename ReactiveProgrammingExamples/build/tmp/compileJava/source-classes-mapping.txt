@@ -1,24 +1,54 @@
-Cells.java
- Cells
-Customer.java
- Customer
 SquareCallableExample.java
  SquareCallableExample
+Employee.java
+ Employee
 Travel.java
  Travel
-StreamMain.java
- StreamMain
+reactiveStream/PrintSubscriber.java
+ reactiveStream.PrintSubscriber
+observer/pattern/MainObserver.java
+ observer.pattern.MainObserver
 SquareFutureExample.java
  SquareFutureExample
-MainFutureExample.java
- MainFutureExample
-MainTravels.java
- MainTravels
+observer/pattern/Observer.java
+ observer.pattern.Observer
+observer/pattern/java/MainWeather.java
+ observer.pattern.java.MainWeather
+StreamExamples.java
+ StreamExamples
+observer/pattern/java/WeatherObservable.java
+ observer.pattern.java.WeatherObservable
+observer/pattern/CasesObserver.java
+ observer.pattern.CasesObserver
+observer/pattern/Subject.java
+ observer.pattern.Subject
 MainCompletableFutureExample.java
  MainCompletableFutureExample
 MainServiceQueue.java
  MainServiceQueue
-StreamExamples.java
- StreamExamples
+reactiveStream/Sleeper.java
+ reactiveStream.Sleeper
+reactiveStream/PowProcessor.java
+ reactiveStream.PowProcessor
+MainFutureExample.java
+ MainFutureExample
+MainTravels.java
+ MainTravels
+observer/pattern/LengthObserver.java
+ observer.pattern.LengthObserver
+MainStreamParallels.java
+ MainStreamParallels
+observer/pattern/java/WeatherObserver.java
+ observer.pattern.java.WeatherObserver
 Person.java
  Person
+Cells.java
+ Cells
+Customer.java
+ Customer
+StreamMain.java
+ StreamMain
+observer/pattern/WordsObserver.java
+ observer.pattern.WordsObserver
+reactiveStream/Main.java
+ reactiveStream.Main
