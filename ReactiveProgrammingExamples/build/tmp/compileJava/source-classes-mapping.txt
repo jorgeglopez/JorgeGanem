@@ -14,8 +14,8 @@ observer/pattern/Observer.java
  observer.pattern.Observer
 observer/pattern/java/MainWeather.java
  observer.pattern.java.MainWeather
-StreamExamples.java
- StreamExamples
+reactiveStream/Main.java
+ reactiveStream.Main
 observer/pattern/java/WeatherObservable.java
  observer.pattern.java.WeatherObservable
 observer/pattern/CasesObserver.java
@@ -28,12 +28,17 @@ MainServiceQueue.java
  MainServiceQueue
 reactiveStream/Sleeper.java
  reactiveStream.Sleeper
+iterator/pattern/MultiplyList.java
+ iterator.pattern.MultiplyList
+ iterator.pattern.MultiplyList$1
 reactiveStream/PowProcessor.java
  reactiveStream.PowProcessor
 MainFutureExample.java
  MainFutureExample
 MainTravels.java
  MainTravels
+iterator/pattern/Main.java
+ iterator.pattern.Main
 observer/pattern/LengthObserver.java
  observer.pattern.LengthObserver
 MainStreamParallels.java
@@ -50,5 +55,5 @@ StreamMain.java
  StreamMain
 observer/pattern/WordsObserver.java
  observer.pattern.WordsObserver
-reactiveStream/Main.java
- reactiveStream.Main
+StreamExamples.java
+ StreamExamples

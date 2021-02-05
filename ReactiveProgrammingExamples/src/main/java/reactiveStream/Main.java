@@ -7,16 +7,20 @@ import java.util.stream.IntStream;
 public class Main {
 
     public static void main (String[] args){
-        //El envio de la publicacion del metodo Publisher
+        //SubmissionPublisher -> Es un productor o fuente de flujo de datos
         SubmissionPublisher<Integer> submissionPublisher = new SubmissionPublisher<>();
-        //Permite procesar los elemetnos del productor para aplicarles una transformacion antes que sean entregados
-        //a los consumidores
+
+        //Procesor --> Intermediario, que hace transformación de los flujos de datos
         Flow.Processor<Integer, Integer> powProcessor = new PowProcessor();
+        //printSubscriber --> consumidor de la fuente
         Flow.Subscriber<Integer> printSubscriber = new PrintSubscriber();
 
-        //publica elementos para los Subscriber basándose en sus demandas recibidas.
+        //subscribe--> se suscribe a la fuente de flujo de datos
         submissionPublisher.subscribe(powProcessor);
+
+        //powProcessor--> luego de procesar los datos, se convierte tambien en una fuente de flujo de datos para poder proporcionar al consumidor
         powProcessor.subscribe(printSubscriber);
+
         IntStream.range(0,20).forEach((i)->{
             submissionPublisher.submit(i);
             Sleeper.sleep(2000);
