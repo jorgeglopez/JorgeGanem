@@ -15,6 +15,7 @@ import io.vertx.ext.reactivestreams.ReactiveReadStream;
 import org.junit.jupiter.api.Test;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
+import org.reactivestreams.Subscriber;
 
 import java.util.Collections;
 import java.util.List;
@@ -42,7 +43,7 @@ public class VertexTest {
     }
 
     @Test
-    public void vertexReactiveWriteStreamTest() {
+    public void vertexReactiveReadStreamTest() {
         ReactiveReadStream reactiveReadStream = new ReactiveReadStream() {
 
             @Override
@@ -147,6 +148,7 @@ public class VertexTest {
     public void vertxTestRequest() {
         vertx.createHttpServer().requestHandler(req -> req.response().end("Hello Brian!")).listen(8080);
     }
+
 
 }
 
