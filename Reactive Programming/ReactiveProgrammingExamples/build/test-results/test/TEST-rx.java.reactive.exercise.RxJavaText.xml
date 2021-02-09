@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rx.java.reactive.exercise.RxJavaText" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-05T19:51:35" hostname="PSLT5839" time="10.083">
+  <properties/>
+  <testcase name="intervalTest1()" classname="rx.java.reactive.exercise.RxJavaText" time="10.083"/>
+  <system-out><![CDATA[Second observable one: 0
+Second observable one: 1
+Second observable one: 2
+Second observable one: 3
+Second observable one: 4
+Second observable one: 5
+Second observable Two: 5
+Second observable one: 6
+Second observable Two: 6
+Second observable one: 7
+Second observable Two: 7
+Second observable one: 8
+Second observable Two: 8
+Second observable one: 9
+Second observable Two: 9
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

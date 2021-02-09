@@ -1,0 +1,74 @@
+1.
+
+package solid;
+
+class UserLogin {
+
+    private final DataBase db;
+
+    UserLogin(DataBase db) {
+        this.db = db;
+    }
+
+    void login(String userName, String password) {
+        User user = db.findUserByUserName(userName);
+        if (user == null) {
+            // do something
+        }
+        // login process..
+    }
+
+}
+************************************
+//Se violaba el principio de responsabilidad unica ya que se estaba enviando email en la clase de login
+package solid;
+
+class EmailSender {
+
+    void sendEmail(User user, String msg) {
+        // send email to user
+    }
+
+}
+
+
+
+2. 
+
+public class Vehicle {
+
+public int getWheelCount() {
+return 4;
+}
+
+public int getMaxSpeed() {
+return 200;
+}
+
+@Override public String toString() {
+return "wheelCount=" + getWheelCount() + ", maxSpeed=" + getMaxSpeed();
+}
+
+}
+
+******************************************
+//más de una responsabilidad para la clase ya que además de hacer los get esta tambien un metodo de impresión lo cual se viola la responsabilidad única
+public class VehiclePrinter {
+public void print(Vehicle vehicle){
+System.out.println(vehicle.toString());
+}
+}
+
+3. 
+class Coche {  
+    String marca;
+
+    Coche(String marca){ this.marca = marca; }
+
+    String getMarcaCoche(){ return marca; }
+}
+*******************************************************
+//Las operaciones de BD se estaban dejando en la misma clase y esto le da mucha responsabilidad a la clase coche
+class CocheDB{  
+    void guardarCocheDB(Coche coche){ ... }
+}
