@@ -13,3 +13,4 @@ DEVOPS para generar buena empatia al equipo
 Analizar los cuellos de botella
 Celebrar reuniones periódicas retrospectivas
 Fluidez en los procesos
+Alzar la mano cuando se requiera
