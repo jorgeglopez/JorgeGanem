@@ -1,0 +1,178 @@
+
+
+Guardar listado de usuarios --> SaveListUser
+
+Mostrar el total del pago --> showTotalPayment
+
+Resultado de la puntuación --> ResultScore
+
+Fecha de nacimiento --> DateOfBirth
+
+Nombre de la mama --> MotherName
+
+Nombre del papa --> FatherName
+
+¿Operación erronea? --> ErrorOperation
+
+Apellido del cliente --> LastNameClient
+
+Número de asistentes --> NumberAssitants
+
+Dirección del estudiante --> AddressStudent
+
+Obtener datos basicos del animal --> getAnimal
+
+Número de celda del preso --> NumberCellPrisoner
+
+Kilometros recorridos hasta Roma --> kilometersToTheCity
+
+Cantidad de tiempo programando --> QuantityTimePrograming
+
+El pedido fue entregado --> DeliveryOrderSucces
+
+Obtener empresas --> getCompanies
+
+Eliminar empresa --> DeleteCompany
+
+Actualizar empresa --> UpdateCompany
+
+Obtener empresa --> getCompany
+
+Obtener marcador del partido de futbol --> getScoreFootball
+
+Obtener marcador del partido de basketball --> getScoreBasketball
+
+Obtener marcador del partido de futsala --> getScoreBoardFutsala
+
+Realizar prestamo de vivienda --> BuildLendingHome
+
+Realizar prestamo de automovil --> BuildLendingCar
+
+Realizar prestamo de libre inversión --> BuildLedingInvestment
+
+
+1.  
+MALO:  const yyyymmdstr = moment().format("YYYY/MM/DD");
+BUENO: const currentdate = moment().format("YYYY/MM/DD");
+
+2. 
+MALO:
+getUserInfo();
+getClientData();
+getCustomerRecord();
+
+BUENO:
+getUser();
+
+
+3. 
+MALO: setTimeout(blastOff, 86400000);
+
+BUENO:
+const MILLISECONDS_IN_A_DAY = 86_400_000;
+setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
+
+
+Asignación mental:
+
+const locations = ["Austin", "New York", "San Francisco"];
+locations.forEach(l => {
+  doStuff();
+  doSomeOtherStuff();
+  // ...
+  // ...
+  // ...
+  // Wait, what is `l` for again?
+  dispatch(l);
+});
+
+**********************
+const locations = ["Austin", "New York", "San Francisco"];
+locations.forEach(location => {
+  doStuff();
+  doSomeOtherStuff();
+  // ...
+  // ...
+  dispatch(location);
+});
+
+
+Contexto innecesario:
+
+const Car = {
+  carMake: "Honda",
+  carModel: "Accord",
+  carColor: "Blue"
+};
+function paintCar(car) {
+  car.carColor = "Red";
+}
+
+***********************
+const Car = {
+  Make: "Honda",
+  Model: "Accord",
+  Color: "Blue"
+};
+function paintCar(car) {
+car.color = "Red";
+}
+
+
+REFACTORIZACIÓN
+
+1. boolean hasCreditCard(User user) {
+    if (user.hasCard) {
+        return true;
+    } else {
+        return false;
+    }
+}
+*************************
+boolean hasCreditCard(User user) {
+return user.hasCard;
+}
+
+2. Circle makeCircle(double x, double y, double radius);
+*********************
+   Circle makeCircle(Point center, double radius);
+
+
+
+3. public boolean check() {
+    if (a < max) {
+        return true;
+    } else {
+        return false;
+    }
+}
+*************************
+public boolean check() {
+return numberToCompare < max;  
+}
+
+
+_____________________________________________________________________
+Monadicas:
+
+
+
+
+Verbos Diadicas
+validate
+calculate
+write
+save
+update
+view
+show
+delete
+print
+List
+evaluation
+execute
+search
+insert
+
+
+
