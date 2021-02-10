@@ -14,3 +14,29 @@ Analizar los cuellos de botella
 Celebrar reuniones periódicas retrospectivas
 Fluidez en los procesos demostrandolo a los demás
 Alzar la mano cuando se requiera
+
+*****************************************************************************************
+1. Otras etapas de los proyectos.
+R/ 
+1. Monitoreo y control.
+2. Gestión de riesgos.
+3. Revisiones periodicas del alcance.
+4. Gestión de cambios.
+5. Gestión de la calidad
+6. Gestión de los costos
+7. Gestión de la integración
+8. La gestión de los recursos.
+
+2. Propuestas de comunicación entre los departamentos.
+R/
+1. Creación de Matriz de comunicaciones. (Poder, Influencia).
+2. Avances bajo el marco de informes del alcance vs la linea base del proyecto.
+3. Involucrar a los stakeholders en las diferentes etapas del proyecto.
+
+3. Herramientas que podrían compartirse para una mayor agilidad entre departamentos
+R/
+1. Trello para la planificación y control de las actividades.
+2. Microsft Project (Para la correcta ejecución de las tareas y estimaciones de costos que se estan generando en el proyecto)
+3. Office TimeLine para visualizar de manera dinamica los avances, lo proximo a ejecutar y marco general de los bloqueantes.
+
+
