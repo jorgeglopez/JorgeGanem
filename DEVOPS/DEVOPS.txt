@@ -36,7 +36,9 @@ R/
 3. Herramientas que podrían compartirse para una mayor agilidad entre departamentos
 R/
 1. Trello para la planificación y control de las actividades.
-2. Microsft Project (Para la correcta ejecución de las tareas y estimaciones de costos que se estan generando en el proyecto)
+2. Microsft Project (Para la correcta ejecución de las tareas y estimaciones de costos que se estan generando en el proyecto en real-time)
 3. Office TimeLine para visualizar de manera dinamica los avances, lo proximo a ejecutar y marco general de los bloqueantes.
+4. monday (WorkFlow dinamico de las etapas o hitos de los proyectos)
+5. zohoProjects (Seguimiento dinamico para una gestión de proyectos más allá de lo normal)
 
 
