@@ -36,9 +36,5 @@ public class MultiplyList implements Iterable<Integer> {
         };
         return iterator;
     }
-
-    @Override
-    public void forEach(Consumer<? super Integer> action) {
-
-    }
+        
 }
