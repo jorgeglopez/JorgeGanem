@@ -15,8 +15,6 @@ import io.vertx.ext.reactivestreams.ReactiveReadStream;
 import org.junit.jupiter.api.Test;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-import org.reactivestreams.Subscriber;
-import java.util.Collections;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -117,19 +115,13 @@ public class VertexTest {
         assertThat(message).contains("Hello, world!");
     }
 
-
-
     @Test
-
     public void responseHttpReadStreamTest(HttpServerResponse response, Publisher<Buffer> otherPublisher) {
-
         ReactiveReadStream<Buffer> reactiveReadStream = ReactiveReadStream.readStream();
         otherPublisher.subscribe(reactiveReadStream);
         Pump pump = Pump.pump(reactiveReadStream, response);
         pump.start();
-
         assertThat(reactiveReadStream).isNotNull();
-
     }
 
     @Test
