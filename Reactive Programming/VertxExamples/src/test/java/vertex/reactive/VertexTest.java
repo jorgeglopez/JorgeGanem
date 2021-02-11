@@ -114,15 +114,15 @@ public class VertexTest {
 
 
     @Test
-    public void example1(HttpServerResponse response, Publisher<Buffer> otherPublisher) {
+    public void responseHttpReadStreamTest(HttpServerResponse response, Publisher<Buffer> otherPublisher) {
 
-        ReactiveReadStream<Buffer> rrs = ReactiveReadStream.readStream();
-        otherPublisher.subscribe(rrs);
-        Pump pump = Pump.pump(rrs, response);
+        ReactiveReadStream<Buffer> reactiveReadStream = ReactiveReadStream.readStream();
+        otherPublisher.subscribe(reactiveReadStream);
+        Pump pump = Pump.pump(reactiveReadStream, response);
 
         pump.start();
 
-        assertThat(rrs).isNotNull();
+        assertThat(reactiveReadStream).isNotNull();
 
     }
 
