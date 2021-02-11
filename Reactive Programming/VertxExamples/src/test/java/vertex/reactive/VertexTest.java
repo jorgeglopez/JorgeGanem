@@ -15,13 +15,8 @@ import io.vertx.ext.reactivestreams.ReactiveReadStream;
 import org.junit.jupiter.api.Test;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-import org.reactivestreams.Subscriber;
-
-import java.util.Collections;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
-
-
 
 public class VertexTest {
     Vertx vertx = Vertx.vertx();
