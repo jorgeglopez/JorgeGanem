@@ -16,12 +16,9 @@ import org.junit.jupiter.api.Test;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 import org.reactivestreams.Subscriber;
-
 import java.util.Collections;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
-
-
 
 public class VertexTest {
     Vertx vertx = Vertx.vertx();
@@ -29,16 +26,19 @@ public class VertexTest {
     @Test
     public void vertexReactiveDNSTest(){
         DnsClient client = vertx.createDnsClient(53, "9.9.9.9");
+
         client.resolveA("vertx.io", ar -> {
             if (ar.succeeded()) {
                 List<String> records = ar.result();
+
                 for (String record : records) {
                     System.out.println(record);
                 }
-            } else {
+            }else {
                 System.out.println("Failed to resolve entry" + ar.cause());
             }
         });
+
         assertThat(client.resolveA("vertx.io").succeeded());
     }
 
@@ -77,10 +77,13 @@ public class VertexTest {
             }
 
             Integer[] numbers = {0,2,3,4,5,6,7,8,9,10};
+
             @Override
             public void onSubscribe(Subscription s) {
                 this.numbers = numbers;
+
                 s.request(2);
+
                 System.out.println(numbers);
 
             }
@@ -105,9 +108,12 @@ public class VertexTest {
     @Test
     public void vertxSendEventBusTest() {
         String message = "Hello, world!";
+
         vertx.eventBus().send("address", message);
         vertx.eventBus().consumer("address");
+
         System.out.println(message);
+
         assertThat(message).contains("Hello, world!");
     }
 
@@ -115,11 +121,11 @@ public class VertexTest {
 
     @Test
     public void example1(HttpServerResponse response, Publisher<Buffer> otherPublisher) {
-
         ReactiveReadStream<Buffer> rrs = ReactiveReadStream.readStream();
-        otherPublisher.subscribe(rrs);
-        Pump pump = Pump.pump(rrs, response);
 
+        otherPublisher.subscribe(rrs);
+
+        Pump pump = Pump.pump(rrs, response);
         pump.start();
 
         assertThat(rrs).isNotNull();
@@ -136,9 +142,10 @@ public class VertexTest {
             if (ar.succeeded()) {
                 FileProps props = ar.result();
                 System.out.println("File size = " + props.size());
-            } else {
+            }else {
                 System.out.println("Failure: " + ar.cause().getMessage());
             }
+
             assertThat(fs.props("my_file.txt"));
         });
 
