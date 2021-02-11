@@ -51,6 +51,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VertexTest.vertexReactiveDNSTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -91,6 +102,7 @@
       <workItem from="1613065099744" duration="601000" />
       <workItem from="1613072435648" duration="921000" />
       <workItem from="1613074925609" duration="1349000" />
+      <workItem from="1613077840839" duration="92000" />
     </task>
     <servers />
   </component>
