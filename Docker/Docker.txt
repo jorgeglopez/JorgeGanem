@@ -1,0 +1,23 @@
+Google Cloud
+
+https://cloud.google.com/container-registry/docs/quickstart?hl=es
+
+1. Instala el SDK de Cloud, que incluye la herramienta de línea de comandos de gcloud. Para actualizar una instalación existente, ejecuta el comando de gcloud components update.
+2. Instala Docker si aún no lo hiciste.
+3. Docker necesita acceso con privilegios para interactuar con los registros. En Linux o Windows, agrega el usuario que usas para ejecutar comandos de Docker al grupo de seguridad de Docker. Este paso no es necesario en Mac OS, ya que Docker Desktop se ejecuta en una máquina virtual como usuario raíz.
+
+***********************************************
+Azure Devops
+
+https://docs.microsoft.com/es-es/azure/container-registry/container-registry-get-started-docker-cli
+Registro de contenedor de Azure: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use Azure Portal o la CLI de Azure.
+CLI de Docker: también debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema macOS, Windows o Linux.
+
+CLI de Azure (comando)
+az acr login --name myregistry
+*******************************************
+
+AWS
+El registry
+
+

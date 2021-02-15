@@ -30,7 +30,7 @@ public class VertexTest {
                 List<String> records = ar.result();
 
                 for (String record : records) {
-                    System.out.println(record);
+                    System.out.println("CREATION DNS: "+record);
                 }
             }else {
                 System.out.println("Failed to resolve entry" + ar.cause());
@@ -89,6 +89,7 @@ public class VertexTest {
             @Override
             public void onNext(Object o) {
                 o.notify();
+                System.out.println(numbers);
             }
 
             @Override
@@ -120,8 +121,10 @@ public class VertexTest {
         ReactiveReadStream<Buffer> reactiveReadStream = ReactiveReadStream.readStream();
         otherPublisher.subscribe(reactiveReadStream);
         Pump pump = Pump.pump(reactiveReadStream, response);
+        System.out.println(" TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"+reactiveReadStream);
         pump.start();
-        assertThat(reactiveReadStream).isNotNull();
+        pump.stop();
+        //assertThat(reactiveReadStream).isEqualTo();
     }
 
     @Test
@@ -145,10 +148,8 @@ public class VertexTest {
 
     @Test
     public void vertxTestRequest() {
-        vertx.createHttpServer().requestHandler(req -> req.response().end("Hello Brian!")).listen(8080);
+        vertx.createHttpServer().requestHandler(req -> req.response().end("Hello")).listen(8080);
     }
-
-
 }
 
 
