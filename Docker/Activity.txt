@@ -1,0 +1,8 @@
+1. Creación de imagenes
+2. Hacer pull
+3. Afianzar comands en linux necesarios para Docker
+4. Docker hub
+5. El Daemon Docker
+6. El container
+7. Docker compose
+
