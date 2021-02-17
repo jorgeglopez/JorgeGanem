@@ -6,3 +6,4 @@
 6. El container
 7. Docker compose
 
+no montar un doble jar en un servicio
